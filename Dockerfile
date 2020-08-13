@@ -1,13 +1,17 @@
 FROM nervos/ckb-docker-builder:bionic-rust-1.41.0 as builder
-LABEL maintainer="muxueqz <zhangmingyuan240@gmail.com>"
+LABEL maintainer="op <op@nervos.org>"
 
 RUN git clone https://github.com/quake/ckb-indexer.git /ckb-indexer
 RUN cd /ckb-indexer; \
-    git checkout v0.1.6; \
     cargo build --release
 
 FROM ubuntu:bionic
-LABEL maintainer="muxueqz <zhangmingyuan240@gmail.com>"
+LABEL maintainer="op <op@nervos.org>"
+
+RUN apt-get update \
+   && DEBIAN_FRONTEND=noninteractive apt-get -y install --no-install-recommends apt-utils \
+      openssl \
+   && rm -rf /var/lib/apt/lists/*
 
 ## indexer port
 EXPOSE 8116
