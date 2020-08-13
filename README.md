@@ -5,8 +5,8 @@ CKB Indexer Dockerfile
 ```bash
 docker run \
   -p 18116:8116 --name ckb-mainnet-indexer -d \
-  --network ckb-mainnet -v $PWD/mainnet:/data/ \
-  -it --rm muxueqz/ckb-indexer -c ckb-mainnet:8114 -s /data -l 0.0.0.0:8116
+  -v $PWD/mainnet:/data/ \
+  -it --rm nervos/ckb-indexer -c YOUR_CKB_SERVER:8114 -s /data -l 0.0.0.0:8116
 ```
 
 ```bash
