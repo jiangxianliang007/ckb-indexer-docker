@@ -5,7 +5,7 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install --no-install-recommends wget apt-utils unzip ca-certificates openssl \
     && rm -rf /var/lib/apt/lists/*
 
-ENV CKB_INDEXER_VERSION 0.2.2
+ENV CKB_INDEXER_VERSION 0.3.0-rc1
 RUN wget https://github.com/nervosnetwork/ckb-indexer/releases/download/v${CKB_INDEXER_VERSION}/ckb-indexer-${CKB_INDEXER_VERSION}-linux.zip -O /tmp/ckb-indexer-${CKB_INDEXER_VERSION}-linux.zip
 RUN cd /tmp && unzip ckb-indexer-${CKB_INDEXER_VERSION}-linux.zip && tar zxf ckb-indexer-linux-x86_64.tar.gz
 RUN cp /tmp/ckb-indexer /bin/ckb-indexer
