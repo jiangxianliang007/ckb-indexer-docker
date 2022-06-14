@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 LABEL maintainer="op <op@nervos.org>"
 
 RUN apt-get update
